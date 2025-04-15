@@ -4,7 +4,7 @@ var move_speed: float = 90.0
 @onready var idle: State = $"../Idle"
 
 func enter() -> void:
-	pass #player.update_animation("idle")
+	player.update_animation("walk")
 
 	
 func exit() -> void:
