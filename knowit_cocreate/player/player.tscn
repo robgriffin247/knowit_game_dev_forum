@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://biaad0jnxmphd"]
+[gd_scene load_steps=15 format=3 uid="uid://biaad0jnxmphd"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_22yba"]
 [ext_resource type="Texture2D" uid="uid://csctm0daeeuvx" path="res://player/sprites/Adam_16x16.png" id="1_adc7n"]
+[ext_resource type="Script" path="res://player/player_state_machine.gd" id="3_pgwsx"]
+[ext_resource type="Script" path="res://player/state_idle.gd" id="4_uleqk"]
+[ext_resource type="Script" path="res://player/state_walk.gd" id="5_dh60v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bqjk"]
 radius = 8.0
@@ -156,3 +159,12 @@ libraries = {
 "": SubResource("AnimationLibrary_2cbft")
 }
 autoplay = "idle_down"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_pgwsx")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_uleqk")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_dh60v")
